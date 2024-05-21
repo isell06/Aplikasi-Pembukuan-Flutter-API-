@@ -6,12 +6,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainPage(), theme: ThemeData(primarySwatch: Colors.blueGrey),);
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey
+        ),
+      home: MainPage(),
+    );
   }
 }

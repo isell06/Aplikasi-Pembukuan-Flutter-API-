@@ -1,8 +1,8 @@
 import 'package:apk_pembukuan_konter_hp/pages/category_page.dart';
 import 'package:apk_pembukuan_konter_hp/pages/home_page.dart';
+import 'package:apk_pembukuan_konter_hp/pages/transaction_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:calendar_appbar/calendar_appbar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,15 +36,28 @@ class _MainPageState extends State<MainPage> {
                 accent: Colors.blueGrey,
               )
             : PreferredSize(
-                child: Container(child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 16),
-                  child: Text('Categories', style: GoogleFonts.montserrat(fontSize: 20),),
+                child: Container(
+                    child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 36, horizontal: 16),
+                  child: Text(
+                    'Categories',
+                    style: GoogleFonts.montserrat(fontSize: 20),
+                  ),
                 )),
                 preferredSize: Size.fromHeight(100)),
         floatingActionButton: Visibility(
           visible: (currentIndex == 0) ? true : false,
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(
+                builder: (context) => TransactionPage(),
+              ))
+                  .then((value) {
+                setState(() {});
+              });
+            },
             backgroundColor: Colors.blueGrey,
             child: Icon(Icons.add),
           ),
